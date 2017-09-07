@@ -1,0 +1,1112 @@
+<div class="container">
+  <section class="top">
+    <div class="row">
+      <div class="col-3"><a href="#"><img src="images/logo.png" alt="Digital Rx Logo" ></a> </div>
+      <div class="col-6 text-center">
+        <h3>Indane TT - Balasore</h3>
+      </div>
+      <div class="col-3 text-right"> <a href="index.html"> <span class="glyphicon glyphicon-off"></span> <b>Log Out</b></a> </div>
+    </div>
+  </section>
+  <section class="practice title">
+    <div class="row first">
+      <div class=" col-12">
+        <h2><i class="fa fa-group" aria-hidden="true"></i> <span>Super Admin</span> </h2>
+        <!--<uib-tabset active="active">-->
+          <!--<uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}">-->
+          <!--Tabs-->
+        <!--</uib-tab>-->
+        <!--</uib-tabset>-->
+        <ul class="links">
+          <li> <a ng-class="main.active.tab == 'bay'? 'active': 'in_active'" ng-click="main.active.tab = 'bay'"> <i class="fa fa-tint" aria-hidden="true"> </i> <span>Bay </span> &nbsp; <i class="fa fa-angle-up" aria-hidden="true"></i><i class="fa fa-angle-down" aria-hidden="true"></i> </a></li>
+          <li> <a ng-class="main.active.tab == 'users'? 'active': 'in_active'" ng-click="main.active.tab = 'users'"> <i class="fa fa-user" aria-hidden="true"> </i> <span>Users </span> &nbsp; <i class="fa fa-angle-up" aria-hidden="true"></i><i class="fa fa-angle-down" aria-hidden="true"></i> </a></li>
+          <li> <a ng-class="main.active.tab == 'contractors'? 'active': 'in_active'" ng-click="main.active.tab = 'contractors'"> <i class="fa fa-user-secret" aria-hidden="true"> </i> <span>Contractors </span> &nbsp; <i class="fa fa-angle-up" aria-hidden="true"></i><i class="fa fa-angle-down" aria-hidden="true"></i> </a></li>
+          <li> <a ng-class="main.active.tab == 'locations'? 'active': 'in_active'" ng-click="main.active.tab = 'locations'"> <i class="fa fa-map-marker" aria-hidden="true"> </i> <span>Locations </span> &nbsp; <i class="fa fa-angle-up" aria-hidden="true"></i><i class="fa fa-angle-down" aria-hidden="true"></i> </a></li>
+          <li> <a ng-class="main.active.tab == 'quantity'? 'active': 'in_active'" ng-click="main.active.tab = 'quantity'"> <i class="fa fa-thermometer-half" aria-hidden="true"> </i> <span>Quantity </span> &nbsp; <i class="fa fa-angle-up" aria-hidden="true"></i><i class="fa fa-angle-down" aria-hidden="true"></i> </a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div ng-switch="main.active.tab" class="tabs-div">
+    <div ng-switch-when="bay" class="" id="Bay">
+      <form>
+      <section class="bay title" style="">
+        <div class="row first">
+          <div class=" col-12" ng-show="addClicked" id="bay-save-btns">
+            <h2> <i class="fa fa-tint" aria-hidden="true"> </i><span></span><strong> Add  Bay</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" type="submit" ng-click="addClicked = false;saveBay(newBay)"><i class="fa fa-check"> </i> <span>Save</span></button>
+              </li>
+              <li>
+                <button class="cancel" type="button" ng-click="addClicked = false"><i class="fa fa-remove"> </i> <span>Cancel</span></button>
+              </li>
+            </ul>
+          </div>
+          <div class=" col-12" style="display: block;" ng-hide="addClicked" id="bay-add-btns">
+            <h2> <i class="fa fa-tint"> </i><span></span><strong> Bay</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" ng-click="addClicked = true" type="button"><i class="fa fa-plus"> </i> <span>Add</span></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div class="bay">
+        <div class="container">
+          <div class="" id="addBay">
+            <div ng-show="addClicked" class="row">
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row">
+                  <div class="col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>Bay Name </label>
+                      <input class="form-control" ng-model="newBay.name" name="" value="" size="35" data-error="Required" required="" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-6">
+                    <div class="form-group ">
+                      <label>Bay Number </label>
+                      <!--<input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">-->
+                      <select name="usertype" ng-model="newBay.number" class="form-control" required>
+                    <option>Select </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                  </select>
+                    </div>
+                  </div>
+                  <div class=" col-12 col-sm-6">
+                    <div class="form-group lname">
+                      <label>Bay Type </label>
+                      <select name="usertype" ng-model="newBay.type" class="form-control" required>
+                    <option>Select </option>
+                    <option value="LPG">LPG</option>
+                  </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row nobdr">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group lname">
+                      <label>Functional Status </label>
+                      <select name="usertype" ng-model="newBay.functionalStatus" class="form-control" required>
+                    <option>Select </option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                  </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group lname">
+                      <label>Operational Status </label>
+                      <select name="usertype" ng-model="newBay.operationalStatus" class="form-control" required>
+                    <option>Select </option>
+                    <option value="Free">Free</option>
+                    <option value="Loading in progress">Loading in progress</option>
+                  </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+
+              <div class="grid-list">
+                <div class="table-responsive">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6 select-div">
+                    <label>Show
+                      <select class="form-control form-control-sm">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                      </select>
+                      entries
+                    </label>
+                  </div>
+                    <div class="col-sm-12 col-md-6 search-div">
+                      <label>Search:<input type="search" class="form-control form-control-sm" placeholder=""></label>
+                    </div>
+                  </div>
+                  <table width="100%" class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Bay Name</th>
+                        <th>Bay Number</th>
+                        <th>Bay Type</th>
+                        <th>Functional Status</th>
+                        <th>Operational Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="bay in bayItems">
+                        <td class="center">{{bay.name}}</td>
+                        <td class="center">{{bay.number}}</td>
+                        <td class="center">{{bay.type}}</td>
+                        <td class="center">{{bay.functionalStatus}}</td>
+                        <td class="center">{{bay.operationalStatus}}</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".bay1" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+    <div ng-switch-when="users" class="" id="Users">
+      <section class="Users  title" style="">
+        <div class="row first">
+          <div class=" col-12" style="display:none  ;" id="user-save-btns">
+            <h2> <i class="fa fa-user    " aria-hidden="true"> </i><span></span><strong> Add  User</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" type="button" data-toggle="collapse" data-target="#addUser" onClick="jQuery('#addUser').show();jQuery('#user-save-btns').hide();jQuery('#user-add-btns').show();"><i class="fa fa-check" aria-hidden="true"> </i> <span>Save</span></button>
+              </li>
+              <li>
+                <button class="cancel" type="button" data-toggle="collapse" data-target="#addUser" onClick="jQuery('#addUser').show();jQuery('#user-save-btns').hide();jQuery('#user-add-btns').show();"><i class="fa fa-remove" aria-hidden="true"> </i> <span>Cancel</span></button>
+              </li>
+            </ul>
+          </div>
+          <div class=" col-12" style="display: block;" id="user-add-btns">
+            <h2> <i class="fa fa-user    " aria-hidden="true"> </i><span></span><strong> Users</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" type="button" data-toggle="collapse" data-target="#addUser" onClick="jQuery('#addUser').hide();jQuery('#user-save-btns').show();jQuery('#user-add-btns').hide(); "><i class="fa fa-plus" aria-hidden="true"> </i> <span>Add</span></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div class="Users">
+        <div class="container">
+          <div class="collapse" id="addUser">
+            <div class="row">
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>User Name </label>
+                      <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-6">
+                    <div class="form-group ">
+                      <label>First Name </label>
+                      <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                    </div>
+                  </div>
+                  <div class=" col-12 col-sm-6">
+                    <div class="form-group lname">
+                      <label>Last Name </label>
+                      <input class="form-control lname" name="lname" value="" size="35" data-error="Required" required="" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row nobdr">
+                  <div class=" col-12 col-sm-6">
+                    <div class="form-group  date">
+                      <label>Date of Birth </label>
+                      <input size="20" class="form-control date" name="name" value="" type="text">
+                    </div>
+                  </div>
+                  <div class=" col-12 col-sm-6">
+                    <div class="form-group hph">
+                      <label> Mobile Number</label>
+                      <input class="form-control p1" name="name" value=" " type="text">
+                      <input class="form-control p2" name="name" value=" " type="text">
+                      <input class="form-control p3" name="name" value=" " type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>Aadhaar No</label>
+                      <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>User Type</label>
+                      <select name="usertype" class="form-control  ">
+                    <option>Select User Type</option>
+                    <option>Super User</option>
+          <option>Admin</option>
+                    <option>Supervisor</option>
+                    <option>TTES Operator</option>
+                  </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>Status </label>
+                      <select name="usertype" class="form-control  ">
+                    <option>Select Status</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                    <option>Locked</option>
+                  </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>Password </label>
+                      <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>Confirm Password </label>
+                      <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+              <div class="grid-list">
+                <div class="table-responsive">
+                  <table width="100%" class="table table-bordered" data-toggle="table">
+                    <thead>
+                      <tr>
+                        <th>User Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Aadhaar No</th>
+                        <th>Mobile Number</th>
+                        <th>User Type</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="center">DonaldOswany <br></td>
+                        <td class="center">Donald <br></td>
+                        <td class="center">Oswany</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">Super User</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user1" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">Michel Clark</td>
+                        <td class="center"> Michel </td>
+                        <td class="center">Clark </td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">Admin</td>
+                        <td class="center">In Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user2" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">Rahul David </td>
+                        <td class="center"> Rahul </td>
+                        <td class="center">David</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">Supervisor</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user3" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">AnthonyMichell </td>
+                        <td class="center"> Anthony </td>
+                        <td class="center">Michell</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">TTES Operator</td>
+                        <td class="center">Locked </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user4" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">MarkPhillips </td>
+                        <td class="center"> Mark </td>
+                        <td class="center">Phillips</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">Supervisor</td>
+                        <td class="center">In Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user5" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">DonaldOswany <br></td>
+                        <td class="center">Donald <br></td>
+                        <td class="center">Oswany</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">Admin</td>
+                        <td class="center">Locked </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user6" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">Michel Clark</td>
+                        <td class="center"> Michel </td>
+                        <td class="center">Clark </td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">Admin</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user7" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">Rahul David </td>
+                        <td class="center"> Rahul </td>
+                        <td class="center">David</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">TTES Operator</td>
+                        <td class="center">In Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user8" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">AnthonyMichell </td>
+                        <td class="center"> Anthony </td>
+                        <td class="center">Michell</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">Super Admin</td>
+                        <td class="center">Locked </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user9" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">MarkPhillips </td>
+                        <td class="center"> Mark </td>
+                        <td class="center">Phillips</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">Admin</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user10" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">MarkPhillips </td>
+                        <td class="center"> Mark </td>
+                        <td class="center">Phillips</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">Supervisor</td>
+                        <td class="center">In Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user11" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td class="center">DonaldOswany <br></td>
+                        <td class="center">Donald <br></td>
+                        <td class="center">Oswany</td>
+                        <td class="center">15-03-1995</td>
+                        <td class="center">72048394823</td>
+                        <td class="center">97525492547</td>
+                        <td class="center">TTES Operator</td>
+                        <td class="center">Locked </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".user12" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        <a href="#" class="btn btn-danger " data-toggle="tooltip" title="Delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-switch-when="contractors" class="" id="Contractors">
+      <section class="Contractors  title" style="">
+        <div class="row first">
+          <div class=" col-12" style="display:none  ;" id="contractor-save-btns">
+            <h2> <i class="fa fa-user-secret    " aria-hidden="true"> </i><span></span><strong> Add   Contractor</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" type="button" data-toggle="collapse" data-target="#addContractor" onClick="jQuery('#addUser').show();jQuery('#contractor-save-btns').hide();jQuery('#contractor-add-btns').show();"><i class="fa fa-check" aria-hidden="true"> </i> <span>Save</span></button>
+              </li>
+              <li>
+                <button class="cancel" type="button" data-toggle="collapse" data-target="#addContractor" onClick="jQuery('#addUser').show();jQuery('#contractor-save-btns').hide();jQuery('#contractor-add-btns').show();"><i class="fa fa-remove" aria-hidden="true"> </i> <span>Cancel</span></button>
+              </li>
+            </ul>
+          </div>
+          <div class=" col-12" style="display: block;" id="contractor-add-btns">
+            <h2> <i class="fa fa-user-secret    " aria-hidden="true"> </i><span></span><strong> Contractors</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" type="button" data-toggle="collapse" data-target="#addContractor" onClick="jQuery('#addUser').hide();jQuery('#contractor-save-btns').show();jQuery('#contractor-add-btns').hide(); "><i class="fa fa-plus" aria-hidden="true"> </i> <span>Add</span></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div class="Contractors">
+        <div class="container">
+          <div class="collapse" id="addContractor">
+            <div class="row">
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-6">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>Contractor Name </label>
+                      <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>Contractor Type </label>
+                      <select class="form-control">
+                    <option>Select </option>
+                    <option>LPG</option>
+                    <option>LPG</option>
+                    <option>LPG</option>
+                  </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="row  ">
+                  <div class=" col-12 col-sm-12">
+                    <div class="form-group ">
+                      <label>Operational Status </label>
+                      <select class="form-control">
+                    <option>Select </option>
+                    <option>Active</option>
+                    <option>Black-listed</option>
+                  </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="form-group address">
+                  <label>Address <span class="req">*</span></label>
+                  <input class="form-control address" size="64" name="name" value="" data-error="Required" required="" type="text">
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="form-group city">
+                  <label>City <span class="req">*</span></label>
+                  <input class="form-control city" size="32" name="name" value="" data-error="Required" required="" type="text">
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="form-group state">
+                  <label>State <span class="req">*</span></label>
+                  <select name="state" class="form-control state">
+                <option value="" selected="">Select </option>
+                <option value="AB">Alberta</option>
+                <option value="AK">Alaska</option>
+                <option value="AL">Alabama</option>
+                <option value="AR">Arkansas</option>
+                <option value="AS">American Samoa</option>
+                <option value="AZ">Arizona</option>
+                <option value="BC">British Columbia</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DC">District of Columbia</option>
+                <option value="DE">Delaware</option>
+                <option value="FL">Florida</option>
+                <option value="FM">Federated States of Micronesia</option>
+                <option value="GA">Georgia</option>
+                <option value="GU">Guam</option>
+                <option value="HI">Hawaii</option>
+                <option value="IA">Iowa</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MB">Manitoba</option>
+                <option value="MD">Maryland</option>
+                <option value="ME">Maine</option>
+                <option value="MH">Marshall Islands</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MO">Missouri</option>
+                <option value="MP">Northern Mariana Islands</option>
+                <option value="MS">Mississippi</option>
+                <option value="MT">Montana</option>
+                <option value="NB">New Brunswick</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="NE">Nebraska</option>
+                <option value="NH">New hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NL">Newfoundland and Labrador</option>
+                <option value="NM">New Mexico</option>
+                <option value="NS">Nova Scotia</option>
+                <option value="NT">Northwest Territories</option>
+                <option value="NU">Nunavut</option>
+                <option value="NV">Nevada</option>
+                <option value="NY" selected="">New York</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="ON">Ontario</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="PE">Prince Edward Island</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="PW">Palau</option>
+                <option value="QC">Quebec</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="SK">Saskatchewan</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VA">Virginia</option>
+                <option value="VI">Virgin Islands</option>
+                <option value="VT">Vermont</option>
+                <option value="WA">Washington</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WV">West Virginia</option>
+                <option value="WY">Wyoming</option>
+                <option value="YT">Yukon</option>
+              </select>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-6 col-lg-3">
+                <div class="form-group zip">
+                  <label>Zip Code <span class="req">*</span></label>
+                  <input class="form-control zip" size="5" name="name" value="" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+              <div class="grid-list">
+                <div class="table-responsive">
+                  <table width="100%" class="table table-bordered" data-toggle="table">
+                    <thead>
+                      <tr>
+                        <th>Contractor Name</th>
+                        <th>Contractor Type</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>PinCode</th>
+                        <th>Operational Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="center"> Conatractor A</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con1" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Conatractor B</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con2" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Conatractor C</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con3" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center"> Conatractor D</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con4" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Conatractor E</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con5" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Conatractor F</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con6" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center"> Conatractor G</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con7" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Conatractor H</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con8" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Conatractor I</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con9" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center"> Conatractor J</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con10" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Conatractor K</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con11" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Conatractor L</td>
+                        <td class="center">LPG</td>
+                        <td class="center">Hyderbad,srnagar</td>
+                        <td class="center">Hyderbad</td>
+                        <td class="center">Telangana</td>
+                        <td class="center">523789</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".con12" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-switch-when="locations" class="" id="Location">
+      <section class="Locations  title" style="">
+        <div class="row first">
+          <div class=" col-12" style="display:none  ;" id="location-save-btns">
+            <h2> <i class="fa fa-map-marker    " aria-hidden="true"> </i><span></span><strong> Add  Location</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" type="button" data-toggle="collapse" data-target="#addLocation" onClick="jQuery('#addUser').show();jQuery('#location-save-btns').hide();jQuery('#location-add-btns').show();"><i class="fa fa-check" aria-hidden="true"> </i> <span>Save</span></button>
+              </li>
+              <li>
+                <button class="cancel" type="button" data-toggle="collapse" data-target="#addLocation" onClick="jQuery('#addUser').show();jQuery('#location-save-btns').hide();jQuery('#location-add-btns').show();"><i class="fa fa-remove" aria-hidden="true"> </i> <span>Cancel</span></button>
+              </li>
+            </ul>
+          </div>
+          <div class=" col-12" style="display: block;" id="location-add-btns">
+            <h2> <i class="fa fa-map-marker    " aria-hidden="true"> </i><span></span><strong> Locations</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" type="button" data-toggle="collapse" data-target="#addLocation" onClick="jQuery('#addUser').hide();jQuery('#location-save-btns').show();jQuery('#location-add-btns').hide(); "><i class="fa fa-plus" aria-hidden="true"> </i> <span>Add</span></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div class="Locations">
+        <div class="container">
+          <div class="collapse" id="addLocation">
+            <div class="row">
+              <div class="col-xs-12  col-sm-12 col-md-4 col-lg-4">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ltn">
+                  <div class="form-group ">
+                    <label>Location Name </label>
+                    <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                  </div>
+                </div>
+                <div class="col-xs-12  col-sm-6 col-md-6 col-lg-6 ltn">
+                  <div class="form-group ">
+                    <label>Location Code </label>
+                    <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group ">
+                  <label>Address</label>
+                  <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group lname">
+                  <label>Operational Status </label>
+                  <select name="usertype" class="form-control  ">
+                <option>Select </option>
+                <option>Active</option>
+                <option>Inactive</option>
+              </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+              <div class="grid-list">
+                <div class="table-responsive">
+                  <table width="100%" class="table table-bordered" data-toggle="table">
+                    <thead>
+                      <tr>
+                        <th>Location Name</th>
+                        <th>Location Code</th>
+                        <th>Address</th>
+                        <th>Operational Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="center">Location 1</td>
+                        <td class="center">1233</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc1" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 2</td>
+                        <td class="center">2234</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">In Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc2" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 3</td>
+                        <td class="center">2343</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc3" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 4</td>
+                        <td class="center">2344</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc4" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 5</td>
+                        <td class="center">2345</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">In Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc5" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 6</td>
+                        <td class="center">3536</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">Locked </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc6" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 7</td>
+                        <td class="center">4347</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc7" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 8</td>
+                        <td class="center">8344</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">In Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc8" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 9</td>
+                        <td class="center">2349</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc9" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 10</td>
+                        <td class="center">2310</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc10" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 11</td>
+                        <td class="center">3411</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">In Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc11" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Location 12</td>
+                        <td class="center">4512</td>
+                        <td class="center">Hyderabad</td>
+                        <td class="center">Active </td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".loc12" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-switch-when="quantity" class="" id="Quantity">
+      <section class="Quantity  title" style="">
+        <div class="row first">
+          <div class=" col-12" style="display:none  ;" id="quantity-save-btns">
+            <h2> <i class="fa fa-map-marker    " aria-hidden="true"> </i><span></span><strong> Add  Quantity</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" type="button" data-toggle="collapse" data-target="#addQuantity" onClick="jQuery('#addUser').show();jQuery('#quantity-save-btns').hide();jQuery('#quantity-add-btns').show();"><i class="fa fa-check" aria-hidden="true"> </i> <span>Save</span></button>
+              </li>
+              <li>
+                <button class="cancel" type="button" data-toggle="collapse" data-target="#addQuantity" onClick="jQuery('#addUser').show();jQuery('#quantity-save-btns').hide();jQuery('#quantity-add-btns').show();"><i class="fa fa-remove" aria-hidden="true"> </i> <span>Cancel</span></button>
+              </li>
+            </ul>
+          </div>
+          <div class=" col-12" style="display: block;" id="quantity-add-btns">
+            <h2> <i class="fa fa-map-marker    " aria-hidden="true"> </i><span></span><strong> Quantity</strong></h2>
+            <ul class="buttons">
+              <li>
+                <button class="submit" type="button" data-toggle="collapse" data-target="#addQuantity" onClick="jQuery('#addUser').hide();jQuery('#quantity-save-btns').show();jQuery('#quantity-add-btns').hide(); "><i class="fa fa-plus" aria-hidden="true"> </i> <span>Add</span></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div class="Quantity">
+        <div class="container">
+          <div class="collapse" id="addQuantity">
+            <div class="row">
+              <div class="col-xs-12  col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group ">
+                  <label>Quantity Name </label>
+                  <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group ">
+                  <label>Quantity (MT)  </label>
+                  <input class="form-control " name="" value="" size="35" data-error="Required" required="" type="text">
+                </div>
+              </div>
+              <div class="col-xs-12  col-sm-12 col-md-4 col-lg-4">
+                <div class="form-group lname">
+                  <label>Operational Status </label>
+                  <select name="usertype" class="form-control  ">
+                <option>Select </option>
+                <option>Active</option>
+                <option>Inactive</option>
+              </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+              <div class="grid-list">
+                <div class="table-responsive">
+                  <table width="100%" class="table table-bordered" data-toggle="table">
+                    <thead>
+                      <tr>
+                        <th>Quantity Name</th>
+                        <th>Quantity (MT)</th>
+                        <th>Operational Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="center">Quantity A</td>
+                        <td class="center">100 MT</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty1" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity B</td>
+                        <td class="center">200 MT</td>
+                        <td class="center">In-Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty2" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity C</td>
+                        <td class="center">100 MT</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty3" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity D </td>
+                        <td class="center">200 MT</td>
+                        <td class="center">In-Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty4" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity E</td>
+                        <td class="center">300 MT</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty5" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity F</td>
+                        <td class="center">200 MT</td>
+                        <td class="center">In-Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty6" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity G</td>
+                        <td class="center">100 MT</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty7" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity H</td>
+                        <td class="center">200 MT</td>
+                        <td class="center">In-Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty8" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity I</td>
+                        <td class="center">100 MT</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty9" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity J</td>
+                        <td class="center">200 MT</td>
+                        <td class="center">In-Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty10" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity K</td>
+                        <td class="center">300 MT</td>
+                        <td class="center">Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty11" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center">Quantity L</td>
+                        <td class="center">200 MT</td>
+                        <td class="center">In-Active</td>
+                        <td class="center"><a href="#" class="btn btn-primary  " data-toggle="modal" data-target=".qty12" title="Change"><span class="glyphicon glyphicon-edit"></span></a>                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

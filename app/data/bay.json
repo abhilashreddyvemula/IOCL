@@ -1,0 +1,12 @@
+[
+  {"name": "Bay 1", "number": 1, "type": "LPG", "functionalStatus": "Active", "operationalStatus": "Free"},
+  {"name": "Bay 2", "number": 2, "type": "LPG", "functionalStatus": "Inactive", "operationalStatus": "Loading in Progress"},
+  {"name": "Bay 3", "number": 3, "type": "LPG", "functionalStatus": "Active", "operationalStatus": "Free"},
+  {"name": "Bay 4", "number": 4, "type": "LPG", "functionalStatus": "Inactive", "operationalStatus": "Loading in Progress"},
+  {"name": "Bay 5", "number": 5, "type": "LPG", "functionalStatus": "Active", "operationalStatus": "Free"},
+  {"name": "Bay 6", "number": 6, "type": "LPG", "functionalStatus": "Inactive", "operationalStatus": "Loading in Progress"},
+  {"name": "Bay 7", "number": 7, "type": "LPG", "functionalStatus": "Active", "operationalStatus": "Loading in Progress"},
+  {"name": "Bay 8", "number": 8, "type": "LPG", "functionalStatus": "Locked", "operationalStatus": "Free"},
+  {"name": "Bay 9", "number": 9, "type": "LPG", "functionalStatus": "Inactive", "operationalStatus": "Loading in Progress"},
+  {"name": "Bay 10", "number": 10, "type": "LPG", "functionalStatus": "Active", "operationalStatus": "Free"}
+]
